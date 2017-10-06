@@ -35,7 +35,7 @@ public class DiceTest {
 			int roll = die.roll();
 			assertTrue(1 <= roll && roll <= 6);
 			total += roll;
-			tally[roll-1]++;
+		tally[roll-1]++;
 		}
 		System.out.println(tally[0]);
 		System.out.println(tally[1]);
