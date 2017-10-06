@@ -49,7 +49,7 @@ public class DiceTest {
 
 		@Test
 		public void testRollMultiple() {
-			// fail("Not yet implemented");
+			// fejl("Ikke implimenteret endnu");
 		}
 
 }
