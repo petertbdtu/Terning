@@ -30,21 +30,15 @@ public class DiceTest {
 		double totalMinimum = (1-allowVariance) * testRolls * diceAverage;
 		double totalMaximum = (1+allowVariance) * testRolls * diceAverage;
 		int total = 0;
-		int[] tally = new int[6];
 		// laver en løkke der tester for 60000 kast
 		for (int i = 0; i < testRolls; i++)
 		{
 			int roll = die.roll();
 			assertTrue(1 <= roll && roll <= 6);
 			total += roll;
-			tally[roll-1]++;
+			
 		}
-		System.out.println(tally[0]);
-		System.out.println(tally[1]);
-		System.out.println(tally[2]);
-		System.out.println(tally[3]);
-		System.out.println(tally[4]);
-		System.out.println(tally[5]);
+		
 		assertTrue(totalMinimum < total && total < totalMaximum);
 
 	}
