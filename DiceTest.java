@@ -22,10 +22,12 @@ public class DiceTest {
 	@Test
 	public void testRoll() {
 		
-		int testRolls = 60000; //Shouldn't exceed 357913940, which is approx intmax/6.
+		int testRolls = 60000; // Shouldn't exceed 357913940, which is approx intmax/6
 		double expectedVariance = 0.04;
-		double totalMinimum = (1-expectedVariance) * testRolls;
-		double totalMaximum = (1+expectedVariance) * testRolls;
+		double diceAverage = 3.5; // Average roll of a six-sided die is 3.5
+		System.out.println(diceAverage);
+		double totalMinimum = (1-expectedVariance) * testRolls * diceAverage;
+		double totalMaximum = (1+expectedVariance) * testRolls * diceAverage;
 		int total = 0;
 		int[] tally = new int[6];
 		for (int i = 0; i < testRolls; i++)
@@ -33,12 +35,6 @@ public class DiceTest {
 			int roll = die.roll();
 			assertTrue(1 <= roll && roll <= 6);
 			total += roll;
-			if (i%1000==0)
-			{
-				System.out.print((1-expectedVariance)*i + " ");
-				System.out.print(total +" ");
-				System.out.println((1+expectedVariance)*i);
-			}
 			tally[roll-1]++;
 		}
 		System.out.println(tally[0]);
