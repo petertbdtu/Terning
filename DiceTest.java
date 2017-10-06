@@ -1,5 +1,6 @@
 
 
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -30,6 +31,7 @@ public class DiceTest {
 		double totalMaximum = (1+expectedVariance) * testRolls * diceAverage;
 		int total = 0;
 		int[] tally = new int[6];
+		// create a loop to test for 60000 rolls
 		for (int i = 0; i < testRolls; i++)
 		{
 			int roll = die.roll();
