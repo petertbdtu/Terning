@@ -31,7 +31,7 @@ public class DiceTest {
 		double totalMaximum = (1+allowVariance) * testRolls * diceAverage;
 		int total = 0;
 		int[] tally = new int[6];
-		// create a loop to test for 60000 rolls
+		// laver en løkke der tester for 60000 kast
 		for (int i = 0; i < testRolls; i++)
 		{
 			int roll = die.roll();
