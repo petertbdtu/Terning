@@ -1,4 +1,6 @@
+
 package terning;
+
 
 import static org.junit.Assert.*;
 
@@ -20,8 +22,7 @@ public class DiceTest {
 	}
 
 	@Test
-	public void testRoll() {
-		
+	public void testRoll(
 		int testRolls = 60000; // Bør ikke overstige 357913940, som er intmax/6. Går den over er der "chance" for overflow hvis alle rammer en 6'er.
 		double allowVariance = 0.04; // Bør ikke afvige med mere end 4%.
 		double diceAverage = 3.5; // Gennemsnitlig antal øjne på en seks sidet terning er 3.5.
@@ -30,6 +31,7 @@ public class DiceTest {
 		double totalMaximum = (1+allowVariance) * testRolls * diceAverage;
 		int total = 0;
 		int[] tally = new int[6];
+    // create a loop to test for 60000 rolls
 		for (int i = 0; i < testRolls; i++)
 		{
 			int roll = die.roll();
@@ -49,7 +51,12 @@ public class DiceTest {
 
 		@Test
 		public void testRollMultiple() {
-			// fejl("Ikke implimenteret endnu");
+
+			// fail("Not yet implemented");
 		}
 
 }
+
+			
+
+
