@@ -1,6 +1,5 @@
 package terning;
 
-
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -23,14 +22,14 @@ public class DiceTest {
 	@Test
 	public void testRoll()
 	{
-		int testRolls = 60000; // Bør ikke overstige 357913940, som er intmax/6. Går den over er der "chance" for overflow hvis alle rammer en 6'er.
-		double allowVariance = 0.04; // Bør ikke afvige med mere end 4%.
-		double diceAverage = 3.5; // Gennemsnitlig antal øjne på en seks sidet terning er 3.5.
+		int testRolls = 60000; // Should not exceed 357913940, which is equivalent to intmax/6. If it does exceed, there is a small "chance" for overflow.
+		double allowVariance = 0.04; // Should not vary more than 4%.
+		double diceAverage = 3.5; // Average amount of eyes on a six sided dice is 3.5.
 		System.out.println(diceAverage);
 		double totalMinimum = (1-allowVariance) * testRolls * diceAverage;
 		double totalMaximum = (1+allowVariance) * testRolls * diceAverage;
 		int total = 0;
-		// laver en løkke der tester for 60000 kast
+		// creates a loop for 60000 rolls
 		for (int i = 0; i < testRolls; i++)
 		{
 			int roll = die.roll();
