@@ -45,7 +45,7 @@ public class DiceTest {
 	@Test
 	public void testRollMultiple() {
 
-		// fail("Not yet implemented");
+		die.rollMultiple(3) 
 	}
 
 }
