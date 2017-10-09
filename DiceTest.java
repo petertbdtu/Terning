@@ -24,23 +24,49 @@ public class DiceTest {
 	{
 		int testRolls = 60000; // Should not exceed 357913940, which is equivalent to intmax/6. If it does exceed, there is a small "chance" for overflow.
 		double allowVariance = 0.04; // Should not vary more than 4%.
-		double diceAverage = 3.5; // Average amount of eyes on a six sided dice is 3.5.
-		System.out.println(diceAverage);
-		double totalMinimum = (1-allowVariance) * testRolls * diceAverage;
-		double totalMaximum = (1+allowVariance) * testRolls * diceAverage;
-		int total = 0;
+		double tallyMinimum = testRolls * (1-allowVariance) / 6;
+		double tallyMaximum = testRolls * (1+allowVariance) / 6;
+		int tally1 = 0;
+		int tally2 = 0;
+		int tally3 = 0;
+		int tally4 = 0;
+		int tally5 = 0;
+		int tally6 = 0;
 		// creates a loop for 60000 rolls
 		for (int i = 0; i < testRolls; i++)
 		{
+
 			int roll = die.roll();
 			assertTrue(1 <= roll && roll <= 6);
-			total += roll;
+			switch(roll) {
+			case 1:  
+				tally1++;
+				break;
+			case 2:  
+				tally2++;
+				break;
+			case 3:  
+				tally3++;
+				break;
+			case 4:  
+				tally4++;
+				break;
+			case 5:  
+				tally5++;
+				break;
+			case 6:  
+				tally6++;
+				break;	
+			}
 
-		tally[roll-1]++;
 		}
+		assertTrue(tallyMinimum < tally1 && tally1 < tallyMaximum);
+		assertTrue(tallyMinimum < tally2 && tally2 < tallyMaximum);
+		assertTrue(tallyMinimum < tally3 && tally3 < tallyMaximum);
+		assertTrue(tallyMinimum < tally4 && tally4 < tallyMaximum);
+		assertTrue(tallyMinimum < tally5 && tally5 < tallyMaximum);
+		assertTrue(tallyMinimum < tally6 && tally6 < tallyMaximum);
 		
-		assertTrue(totalMinimum < total && total < totalMaximum);
-
 	}
 
 }
