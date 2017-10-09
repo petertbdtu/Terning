@@ -3,7 +3,7 @@ package terning;
 public class Dice {
 	// roll the die and return a value between 1-6
 	public int roll() {
-		int value = (int)(Math.random() * 6.0) + 1;
+		return (int)(Math.random() * 6.0) + 1;
 	}
 
 	// roll the die n times and print the values
