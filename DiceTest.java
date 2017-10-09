@@ -42,10 +42,4 @@ public class DiceTest {
 
 	}
 
-	@Test
-	public void testRollMultiple() {
-
-		die.rollMultiple(3) 
-	}
-
 }
